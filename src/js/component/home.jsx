@@ -1,4 +1,4 @@
-import React, {useState }from "react";
+import React, {useEffect, useState }from "react";
 
 
 
@@ -6,6 +6,32 @@ import React, {useState }from "react";
 const Home = () => {
 	const [ inputValue, setInputValue] = useState("")
 	const [ todos, setTodos] = useState([])
+
+//---------la llamada a la API
+
+
+function createUser() {
+	fetch("https://playground.4geeks.com/apis/fake/todos/user/adri1234",{
+		method:"POST",
+		body:JSON.stringify([]),
+		headers:{
+			"Content-Type":"application/json"
+		}
+	})
+	.then((Response)=>Response.json())
+	.then((data)=>console.log(data))
+	.catch((error)=>console.log(error))
+	
+}
+
+
+//----------
+
+
+	useEffect(()=>{
+		getInfo()
+		createUser()
+	},[])
 
 
 	return (
@@ -33,5 +59,6 @@ const Home = () => {
 		</div>
 	);
 };
+
 
 export default Home;
