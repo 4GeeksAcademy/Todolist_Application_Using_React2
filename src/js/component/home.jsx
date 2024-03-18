@@ -29,7 +29,7 @@ function createUser() {
 
 
 	useEffect(()=>{
-		getInfo()
+		//getInfo()
 		createUser()
 	},[])
 
@@ -53,7 +53,7 @@ function createUser() {
 					placeholder="What do you need to do "/>	</li>
 					{todos.map((item, index)=> (
 				<li>{item}<i className="fas fa-trash" 
-				onClick={() => settoDos(todos.filter((t, currentIndex) => index != currentIndex))}  > </i></li>))}
+				onClick={() => setToDos(todos.filter((t, currentIndex) => index != currentIndex))}  > </i></li>))}
 			</ul>
 			<div>23 tasks</div>
 		</div>
